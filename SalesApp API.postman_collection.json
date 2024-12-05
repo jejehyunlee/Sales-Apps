@@ -1,0 +1,336 @@
+{
+	"info": {
+		"_postman_id": "404017ca-f0d7-4379-add2-7802413be6e7",
+		"name": "SalesApp API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21524155"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"ADMIN123@gmail.com\",\n    \"password\": \"123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBRE1JTjEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MzMzNDUyMDYsImV4cCI6MTczMzY0NTIwNn0.B0mUc9Ex37SD5VAP2DxQMCzQqhgyPKn4YZMF0l-t3Ppcb3R_2t3fB737TsQ1sFSVJrk8qOMiZFVUWQOBGX1MbA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"CASHIER-BARU123@gmail.com\",\n    \"password\": \"123456789\",\n    \"name\": \"AMEL\",\n    \"address\": \"Jakarta\",\n    \"mobilePhone\": \"0813862367234423\",\n    \"role\" : \"ROLE_CASHIER\"\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/admin/create-user",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"create-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Activated-User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBRE1JTjEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MzMzNDUyMDYsImV4cCI6MTczMzY0NTIwNn0.B0mUc9Ex37SD5VAP2DxQMCzQqhgyPKn4YZMF0l-t3Ppcb3R_2t3fB737TsQ1sFSVJrk8qOMiZFVUWQOBGX1MbA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth/activate-user?email=CASHIER-BARU@gmail.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"activate-user"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "CASHIER-BARU@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBRE1JTjEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MzMzNTI1NDcsImV4cCI6MTczMzY1MjU0N30.Kl5ZJVm1pWcuhRTMWdT4zxV3vokXqC9HRk-8k5seKCAlLzyB3hnVdMMkNJ44sgWvb1TXq6DvM5sEpye7C1zKmA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/admin/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"admin",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Management",
+			"item": [
+				{
+					"name": "Create Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJDQVNISUVSLUJBUlVAZ21haWwuY29tIiwiaWF0IjoxNzMzMzUyMDk3LCJleHAiOjE3MzM2NTIwOTd9.AeM8NiCFMI4kRcRbKodWA0tRrA6gIt4fv3JTTcRpXZWM4fDxhHaKekG3Fgalxbpfb-Sou4JzSSLC7Md_kxP5ng",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productName\" : \"RADIO\" ,\n    \"productDesc\": \"Electronic\",\n    \"price\" : 6000,\n    \"stock\" : 20\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/product/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllProduct",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBRE1JTjEyM0BnbWFpbC5jb20iLCJpYXQiOjE3MzMzNDc1NjMsImV4cCI6MTczMzY0NzU2M30.CzvlTAOFxKvMp3t9eBVrA7j_XMkfr2wBN6R67VOChaIWih4bSfNdUh-U2nbljQ47Vv6MTKB3bCtj7AIxSDreyA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/product/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"all"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transaction Management",
+			"item": [
+				{
+					"name": "Create Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJDQVNISUVSLUJBUlVAZ21haWwuY29tIiwiaWF0IjoxNzMzMzQ3ODgxLCJleHAiOjE3MzM2NDc4ODF9.iwqGgwgFgU3_Q6EtDi7fy0bRy49_-4XSTQgoNlf_QlrRgpySlx65skumWQNSifvpoXvp1a8XBVITIicndpX5Kg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transactionDetailRequests\": [\n        {\n            \"productPriceId\": \"e82a87c5-5bf8-4a66-880b-100ea34bb8e1\",\n            \"quantity\": 1\n        } ,\n        {\n            \"productPriceId\": \"f9d56295-4b1f-4933-aa5c-c45063f2aecf\",\n            \"quantity\": 1\n        }\n\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/trx/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"trx",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Report",
+			"item": [
+				{
+					"name": "Generate Report Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/report/product/pdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"report",
+								"product",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Report Trx",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/report/trx/pdf",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"report",
+								"trx",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
